@@ -1,0 +1,276 @@
+/**
+ * NBY IT Options — Job single page (two columns).
+ * Depends on careers.css for variables, the type pill and buttons.
+ */
+
+.nby-single-page {
+	width: 100%;
+	max-width: 1240px;
+	margin: 0 auto;
+	padding: 48px 16px 72px;
+	box-sizing: border-box;
+}
+
+.nby-single {
+	display: grid;
+	grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+	align-items: start;
+	gap: 40px;
+}
+
+/* Sidebar: other jobs --------------------------------------------------- */
+
+.nby-single__sidebar-inner {
+	position: sticky;
+	top: 24px;
+	padding: 24px;
+	background: var(--nby-bg);
+	border: 1px solid var(--nby-border);
+}
+
+.nby-single__sidebar-title {
+	margin: 0 0 16px;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.3;
+	color: var(--nby-text);
+}
+
+.nby-other-jobs {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nby-other-jobs li {
+	margin: 0;
+	border-top: 1px solid var(--nby-border);
+}
+
+.nby-other-jobs li:first-child {
+	border-top: 0;
+}
+
+.nby-careers a.nby-other-job {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin: 0 -10px;
+	padding: 14px 10px;
+	color: var(--nby-text);
+	text-decoration: none;
+	transition: background-color 0.2s ease;
+}
+
+.nby-careers a.nby-other-job:hover {
+	background: var(--nby-primary-soft);
+}
+
+.nby-careers a.nby-other-job:focus-visible {
+	outline: none;
+	box-shadow: var(--nby-focus);
+}
+
+.nby-other-job__type {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--nby-primary);
+}
+
+.nby-other-job__title {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.35;
+	overflow-wrap: anywhere;
+}
+
+.nby-careers a.nby-other-job:hover .nby-other-job__title {
+	color: var(--nby-primary);
+}
+
+.nby-other-job__meta {
+	font-size: 14px;
+	color: var(--nby-muted);
+}
+
+.nby-single__empty {
+	margin: 0 0 8px;
+	font-size: 15px;
+	color: var(--nby-muted);
+}
+
+.nby-careers a.nby-single__all {
+	display: inline-block;
+	margin-top: 16px;
+	font-size: 15px;
+	font-weight: 500;
+	color: var(--nby-primary);
+	text-decoration: none;
+}
+
+.nby-careers a.nby-single__all:hover {
+	text-decoration: underline;
+}
+
+/* Main: job details ----------------------------------------------------- */
+
+.nby-single__main {
+	min-width: 0;
+	padding: 40px;
+	background: var(--nby-surface);
+	border: 1px solid var(--nby-border);
+}
+
+.nby-single__header {
+	padding-bottom: 28px;
+	border-bottom: 1px solid var(--nby-border);
+}
+
+.nby-single__title {
+	margin: 0 0 24px;
+	font-size: clamp(28px, 4vw, 40px);
+	font-weight: 500;
+	line-height: 1.15;
+	color: var(--nby-text);
+	overflow-wrap: anywhere;
+}
+
+.nby-single__meta {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 16px;
+	margin: 0 0 28px;
+}
+
+.nby-single__meta > div {
+	padding: 14px 16px;
+	background: var(--nby-bg);
+	border: 1px solid var(--nby-border);
+}
+
+.nby-single__meta dt {
+	margin: 0 0 4px;
+	font-size: 13px;
+	color: var(--nby-muted);
+}
+
+.nby-single__meta dd {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--nby-text);
+	overflow-wrap: anywhere;
+}
+
+.nby-single__closed {
+	margin: 12px 0 0;
+	font-size: 15px;
+	color: var(--nby-danger);
+}
+
+.nby-single__media {
+	margin-top: 28px;
+}
+
+.nby-single__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.nby-single__content {
+	margin-top: 28px;
+	font-size: 16px;
+	line-height: 1.7;
+	color: var(--nby-text);
+	overflow-wrap: break-word;
+}
+
+.nby-single__content > :first-child {
+	margin-top: 0;
+}
+
+.nby-single__content img,
+.nby-single__content iframe,
+.nby-single__content table {
+	max-width: 100%;
+}
+
+.nby-single__footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-top: 36px;
+	padding: 24px;
+	background: var(--nby-primary-soft);
+}
+
+.nby-single__footer p {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 500;
+	color: var(--nby-text);
+}
+
+/* Keep button text white against theme/Elementor link colors. */
+.nby-single a.nby-btn.text-white,
+.nby-single a.nby-btn.text-white:hover,
+.nby-single a.nby-btn.text-white:visited {
+	color: #fff !important;
+}
+.pt-120{
+	padding-top: 120px;
+}
+
+/* Responsive: job details first, other jobs below ---------------------- */
+
+@media (max-width: 960px) {
+	.nby-single {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 28px;
+	}
+	.pt-120 {
+		padding-top: 80px;
+	}
+
+	.nby-single__main {
+		order: -1;
+	}
+
+	.nby-single__sidebar-inner {
+		position: static;
+	}
+}
+@media (max-width: 767px){
+	.pt-120 {
+		padding-top: 0px;
+	}
+}
+@media (max-width: 640px) {
+	.nby-single-page {
+		padding: 24px 16px 48px;
+	}
+
+	.nby-single__main {
+		padding: 24px 18px;
+	}
+
+	.nby-single__sidebar-inner {
+		padding: 20px 18px;
+	}
+
+	.nby-single__cta .nby-btn,
+	.nby-single__footer .nby-btn {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nby-careers a.nby-other-job {
+		transition: none;
+	}
+}

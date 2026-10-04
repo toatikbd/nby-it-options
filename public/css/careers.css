@@ -1,0 +1,309 @@
+/**
+ * NBY IT Options — Career listing.
+ * Colors are CSS variables; --nby-primary is set from NBY IT Options → General.
+ */
+
+:root {
+	--nby-primary: #1f4d3a;
+	--nby-primary-dark: color-mix(in srgb, var(--nby-primary) 80%, #000);
+	--nby-primary-soft: color-mix(in srgb, var(--nby-primary) 9%, #fff);
+	--nby-bg: #f6f8f6;
+	--nby-surface: #ffffff;
+	--nby-text: #1b1f1d;
+	--nby-muted: #5f6b66;
+	--nby-border: #dfe5e1;
+	--nby-danger: #b42318;
+	--nby-danger-soft: #fef3f2;
+	--nby-radius: 12px;
+	--nby-focus: 0 0 0 3px color-mix(in srgb, var(--nby-primary) 35%, transparent);
+}
+
+.nby-careers,
+.nby-apply {
+	color: var(--nby-text);
+	font-family: inherit;
+	line-height: 1.5;
+	box-sizing: border-box;
+}
+
+.nby-careers *,
+.nby-careers *::before,
+.nby-careers *::after,
+.nby-apply *,
+.nby-apply *::before,
+.nby-apply *::after {
+	box-sizing: inherit;
+}
+
+.nby-careers .screen-reader-text,
+.nby-apply .screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* List ------------------------------------------------------------------ */
+
+.nby-careers__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid var(--nby-border);
+}
+
+.nby-job {
+	display: grid;
+	grid-template-columns: 64px minmax(0, 2.2fr) minmax(0, 1.4fr) minmax(0, 1.1fr) auto;
+	align-items: center;
+	gap: 24px;
+	margin: 0;
+	padding: 28px 8px;
+	border-bottom: 1px solid var(--nby-border);
+	transition: background-color 0.2s ease;
+}
+
+.nby-job:hover {
+	background: var(--nby-primary-soft);
+}
+
+.nby-job__num {
+	font-size: 28px;
+	font-weight: 500;
+	line-height: 1;
+	color: var(--nby-primary);
+	font-variant-numeric: tabular-nums;
+}
+
+.nby-job__type {
+	display: inline-block;
+	margin-bottom: 8px;
+	padding: 3px 12px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.5;
+	color: var(--nby-primary);
+	background: var(--nby-primary-soft);
+	border: 1px solid color-mix(in srgb, var(--nby-primary) 20%, transparent);
+}
+
+.nby-job__title {
+	margin: 0;
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 1.3;
+	overflow-wrap: anywhere;
+}
+
+.nby-job__title a {
+	color: var(--nby-text);
+	text-decoration: none;
+}
+
+.nby-job__title a:hover {
+	color: var(--nby-primary);
+}
+
+.nby-job__title a:focus-visible {
+	outline: none;
+	box-shadow: var(--nby-focus);
+}
+
+.nby-job__meta {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	font-size: 15px;
+	color: var(--nby-muted);
+	overflow-wrap: anywhere;
+}
+
+.nby-job__location {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--nby-text);
+}
+
+.nby-job__location .nby-icon {
+	flex: none;
+	color: var(--nby-primary);
+}
+
+.nby-job__level {
+	color: var(--nby-text);
+	font-weight: 500;
+}
+
+.nby-job__action {
+	justify-self: end;
+}
+
+/* Buttons --------------------------------------------------------------- */
+
+.nby-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 46px;
+	padding: 10px 26px;
+	font: inherit;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.2;
+	color: #fff;
+	text-decoration: none;
+	white-space: nowrap;
+	background: var(--nby-primary);
+	border: 1px solid var(--nby-primary);
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.nby-btn:hover {
+	color: #fff;
+	background: var(--nby-primary-dark);
+	border-color: var(--nby-primary-dark);
+}
+
+.nby-btn:hover .nby-icon {
+	transform: translateX(2px);
+}
+
+.nby-btn .nby-icon {
+	transition: transform 0.2s ease;
+}
+
+.nby-btn:focus-visible {
+	outline: none;
+	box-shadow: var(--nby-focus);
+}
+
+.nby-btn--disabled,
+.nby-btn--disabled:hover,
+.nby-btn[disabled] {
+	color: var(--nby-muted);
+	background: #eef1ef;
+	border-color: var(--nby-border);
+	cursor: not-allowed;
+}
+
+.nby-job.is-expired .nby-job__num,
+.nby-job.is-expired .nby-job__title a {
+	color: var(--nby-muted);
+}
+
+.nby-job__action .nby-btn.text-white {
+	color: #fff !important;
+}
+
+/* Empty state & pagination --------------------------------------------- */
+
+.nby-careers__empty {
+	margin: 0;
+	padding: 32px;
+	text-align: center;
+	color: var(--nby-muted);
+	background: var(--nby-bg);
+	border: 1px solid var(--nby-border);
+}
+
+.nby-careers__pagination {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 6px;
+	margin-top: 32px;
+}
+
+.nby-careers__pagination .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 42px;
+	min-height: 42px;
+	padding: 0 12px;
+	color: var(--nby-text);
+	text-decoration: none;
+	border: 1px solid var(--nby-border);
+}
+
+.nby-careers__pagination .page-numbers.current,
+.nby-careers__pagination a.page-numbers:hover {
+	color: #fff;
+	background: var(--nby-primary);
+	border-color: var(--nby-primary);
+}
+
+.nby-careers__pagination a.page-numbers:focus-visible {
+	outline: none;
+	box-shadow: var(--nby-focus);
+}
+
+/* Responsive ------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+	.nby-job {
+		grid-template-columns: 52px minmax(0, 1fr) minmax(0, 1fr) auto;
+		gap: 16px 24px;
+	}
+
+	.nby-job__main {
+		grid-column: 2 / -1;
+	}
+
+	.nby-job__num {
+		grid-row: 1 / span 2;
+		align-self: start;
+	}
+}
+
+@media (max-width: 640px) {
+	.nby-job {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 12px;
+		padding: 24px 4px;
+	}
+
+	.nby-job__num {
+		grid-row: auto;
+		font-size: 22px;
+	}
+
+	.nby-job__main {
+		grid-column: auto;
+	}
+
+	.nby-job__title {
+		font-size: 20px;
+	}
+
+	.nby-job__meta {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 4px 16px;
+	}
+
+	.nby-job__action {
+		justify-self: stretch;
+		margin-top: 4px;
+	}
+
+	.nby-job__action .nby-btn {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nby-job,
+	.nby-btn,
+	.nby-btn .nby-icon {
+		transition: none;
+	}
+}

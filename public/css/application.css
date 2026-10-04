@@ -1,0 +1,361 @@
+/**
+ * NBY IT Options — Career application form.
+ * Depends on careers.css for variables and buttons.
+ */
+
+.nby-apply {
+	max-width: 880px;
+	margin: 0 auto;
+	padding: 40px;
+	background: var(--nby-surface);
+	border: 1px solid var(--nby-border);
+}
+
+/* Header ---------------------------------------------------------------- */
+
+.nby-apply__header {
+	padding-bottom: 28px;
+	margin-bottom: 28px;
+	border-bottom: 1px solid var(--nby-border);
+}
+
+.nby-apply__eyebrow {
+	margin: 0 0 4px;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--nby-primary);
+}
+
+.nby-apply__title {
+	margin: 0 0 14px;
+	font-size: clamp(24px, 4vw, 34px);
+	font-weight: 500;
+	line-height: 1.2;
+	color: var(--nby-text);
+	overflow-wrap: anywhere;
+}
+
+.nby-apply__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0 0 12px;
+	padding: 0;
+	list-style: none;
+}
+
+.nby-apply__meta li {
+	margin: 0;
+	padding: 4px 12px;
+	font-size: 14px;
+	color: var(--nby-primary);
+	background: var(--nby-primary-soft);
+}
+
+.nby-apply__deadline {
+	margin: 0;
+	font-size: 15px;
+	color: var(--nby-muted);
+}
+
+/* Alerts ---------------------------------------------------------------- */
+
+.nby-apply__alert {
+	margin: 0 0 24px;
+	padding: 16px 20px;
+	color: var(--nby-danger);
+	background: var(--nby-danger-soft);
+	border: 1px solid color-mix(in srgb, var(--nby-danger) 30%, transparent);
+	border-left-width: 4px;
+}
+
+.nby-apply__alert[hidden] {
+	display: none;
+}
+
+.nby-apply__alert:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--nby-danger) 25%, transparent);
+}
+
+.nby-apply__alert p {
+	margin: 0 0 6px;
+	font-weight: 500;
+}
+
+.nby-apply__alert p:last-child {
+	margin-bottom: 0;
+}
+
+.nby-apply__alert ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+.nby-apply__alert a {
+	color: inherit;
+}
+
+/* Fields ---------------------------------------------------------------- */
+
+.nby-apply__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 4px 24px;
+}
+
+.nby-field {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.nby-field--wide {
+	grid-column: 1 / -1;
+}
+
+.nby-field > label {
+	margin-bottom: 8px;
+	font-size: 15px;
+	font-weight: 500;
+	color: var(--nby-text);
+}
+
+.nby-required {
+	color: var(--nby-danger);
+}
+
+.nby-apply input[type="text"],
+.nby-apply input[type="email"],
+.nby-apply input[type="tel"],
+.nby-apply input[type="url"],
+.nby-apply textarea {
+	width: 100%;
+	min-height: 50px;
+	margin: 0;
+	padding: 12px 16px;
+	font: inherit;
+	font-size: 16px; /* Prevents iOS zoom on focus. */
+	line-height: 1.4;
+	color: var(--nby-text);
+	background: var(--nby-bg);
+	border: 1px solid var(--nby-border);
+	box-shadow: none;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.nby-apply textarea {
+	min-height: 170px;
+	resize: vertical;
+}
+
+.nby-apply input::placeholder,
+.nby-apply textarea::placeholder {
+	color: #98a29d;
+}
+
+.nby-apply input:hover,
+.nby-apply textarea:hover {
+	border-color: color-mix(in srgb, var(--nby-primary) 35%, var(--nby-border));
+}
+
+.nby-apply input:focus,
+.nby-apply textarea:focus {
+	outline: none;
+	background: #fff;
+	border-color: var(--nby-primary);
+	box-shadow: var(--nby-focus);
+}
+
+.nby-field.has-error input,
+.nby-field.has-error textarea,
+.nby-field.has-error .nby-file {
+	border-color: var(--nby-danger);
+	background: var(--nby-danger-soft);
+}
+
+.nby-field__error {
+	min-height: 1.4em;
+	margin: 6px 0 10px;
+	font-size: 14px;
+	color: var(--nby-danger);
+}
+
+.nby-field__error:empty {
+	min-height: 0;
+	margin-bottom: 14px;
+}
+
+.nby-field__help {
+	margin: 8px 0 0;
+	font-size: 14px;
+	color: var(--nby-muted);
+}
+
+/* File ------------------------------------------------------------------ */
+
+.nby-file {
+	padding: 16px;
+	background: var(--nby-bg);
+	border: 1px dashed color-mix(in srgb, var(--nby-primary) 35%, var(--nby-border));
+	max-width: 270px;
+}
+
+.nby-file input[type="file"] {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	font: inherit;
+	font-size: 15px;
+	color: var(--nby-muted);
+	border-color: transparent;
+}
+
+.nby-file input[type="file"]::file-selector-button {
+	margin-right: 14px;
+	padding: 10px 18px;
+	font: inherit;
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--nby-primary);
+	background: #fff;
+	border: 1px solid var(--nby-primary);
+	cursor: pointer;
+}
+
+.nby-file input[type="file"]:focus-visible {
+	outline: none;
+	box-shadow: var(--nby-focus);
+}
+
+/* Checkbox -------------------------------------------------------------- */
+
+.nby-check {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-top: 6px;
+	font-size: 15px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.nby-check input[type="checkbox"] {
+	flex: none;
+	width: 18px;
+	height: 18px;
+	margin: 1px 0 0;
+	accent-color: var(--nby-primary);
+	cursor: pointer;
+}
+
+.nby-check input[type="checkbox"]:focus-visible {
+	outline: 2px solid var(--nby-primary);
+	outline-offset: 2px;
+}
+
+/* Honeypot -------------------------------------------------------------- */
+
+.nby-hp {
+	position: absolute !important;
+	left: -10000px !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+/* Actions --------------------------------------------------------------- */
+
+.nby-apply__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 12px 20px;
+	margin: 16px 0 0;
+	text-align: center;
+}
+
+.nby-apply__actions .nby-btn:hover{
+	color: #fff;
+}
+.nby-apply__note {
+	width: 100%;
+	margin: 0;
+	font-size: 14px;
+	color: var(--nby-muted);
+}
+
+.nby-btn--lg {
+	min-height: 54px;
+	padding: 14px 40px;
+	font-size: 16px;
+}
+
+.nby-btn.is-loading {
+	opacity: 0.75;
+	cursor: progress;
+}
+
+/* Message / success screens -------------------------------------------- */
+
+.nby-apply--message {
+	max-width: 680px;
+	text-align: center;
+}
+
+.nby-apply--message p {
+	margin: 0 0 10px;
+	color: var(--nby-muted);
+}
+
+.nby-apply--message .nby-apply__lead {
+	font-size: 18px;
+	color: var(--nby-text);
+}
+
+.nby-apply__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 64px;
+	height: 64px;
+	margin-bottom: 18px;
+	color: #fff;
+	background: var(--nby-primary);
+}
+
+.nby-apply--message .nby-apply__actions {
+	margin-top: 24px;
+}
+
+.nby-privacy_consent{
+	display: flex;
+	align-items: center;
+}
+/* Responsive ------------------------------------------------------------ */
+
+@media (max-width: 680px) {
+	.nby-apply {
+		padding: 24px 18px;
+	}
+
+	.nby-apply__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.nby-apply__actions .nby-btn {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nby-apply input,
+	.nby-apply textarea {
+		transition: none;
+	}
+}
